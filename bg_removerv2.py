@@ -20,8 +20,8 @@ def get_greeting():
     else:
         return "Good Night"
 
-# Sidebar for light/dark mode toggle
-mode = st.sidebar.radio("Select Mode", ("Light Mode", "Dark Mode"))
+# Mode toggle outside the sidebar
+mode = st.selectbox("Select Mode", ("Light Mode", "Dark Mode"))
 
 # CSS for Light and Dark modes
 if mode == "Light Mode":
