@@ -2,6 +2,23 @@ import streamlit as st
 from rembg import remove
 from PIL import Image
 import io
+from datetime import datetime
+import pytz
+
+# Function to get greeting based on time in the Philippines
+def get_greeting():
+    philippines_tz = pytz.timezone('Asia/Manila')
+    current_time = datetime.now(philippines_tz)
+    hour = current_time.hour
+
+    if 5 <= hour < 12:
+        return "Good Morning"
+    elif 12 <= hour < 18:
+        return "Good Afternoon"
+    elif 18 <= hour < 22:
+        return "Good Evening"
+    else:
+        return "Good Night"
 
 # Custom CSS for styling
 st.markdown(
@@ -32,8 +49,11 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# Header
-st.markdown('<div class="main-title">Background Remover</div>', unsafe_allow_html=True)
+# Greeting based on the time in the Philippines
+greeting = get_greeting()
+
+# Header with greeting
+st.markdown(f'<div class="main-title">{greeting}! Welcome to the Background Remover</div>', unsafe_allow_html=True)
 
 # Sidebar for feedback
 st.sidebar.header("Feedback")
