@@ -49,7 +49,7 @@ if uploaded_file:
     input_image = Image.open(uploaded_file)
     
     # Display the uploaded image
-    st.image(input_image, caption="Uploaded Image", use_column_width=True)
+    st.image(input_image, caption="Uploaded Image", use_container_width=True)
     
     # Process the image with progress indicator
     with st.spinner("Removing background..."):
@@ -63,7 +63,7 @@ if uploaded_file:
         output_image = Image.open(io.BytesIO(output_bytes))
     
     # Display the processed image
-    st.image(output_image, caption="Image with Background Removed", use_column_width=True)
+    st.image(output_image, caption="Image with Background Removed", use_container_width=True)
 
     # Download button for the output image
     output_file = io.BytesIO()
@@ -84,7 +84,7 @@ if uploaded_file:
             # Create a new image with the selected background color
             new_bg = Image.new("RGBA", output_image.size, bg_color)
             final_image = Image.alpha_composite(new_bg, output_image.convert("RGBA"))
-            st.image(final_image, caption="Image with New Background", use_column_width=True)
+            st.image(final_image, caption="Image with New Background", use_container_width=True)
 
             # Download button for new background image
             final_file = io.BytesIO()
