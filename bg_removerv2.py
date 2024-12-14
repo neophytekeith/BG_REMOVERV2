@@ -20,66 +20,139 @@ def get_greeting():
     else:
         return "Good Night"
 
-# Custom CSS for styling and animation
-st.markdown(
-    """
-    <style>
-    /* CSS for animated greeting */
-    .greeting {
-        text-align: center;
-        font-size: 50px;
-        font-weight: bold;
-        margin-top: 20px;
-        display: inline-block;
-        animation: colorChange 5s infinite, fadeIn 2s ease-in-out;
-    }
+# Sidebar for light/dark mode toggle
+mode = st.sidebar.radio("Select Mode", ("Light Mode", "Dark Mode"))
 
-    /* Letter by letter animation */
-    .greeting span {
-        display: inline-block;
-        opacity: 0;
-        animation: fadeIn 0.5s forwards;
-    }
+# CSS for Light and Dark modes
+if mode == "Light Mode":
+    st.markdown(
+        """
+        <style>
+        .main-title {
+            text-align: center;
+            font-size: 50px;
+            font-weight: bold;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+        .greeting {
+            text-align: center;
+            font-size: 50px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #000;
+            display: inline-block;
+            animation: colorChange 5s infinite, fadeIn 2s ease-in-out;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 14px;
+            color: #555;
+        }
+        /* Animation for color change and letter fade-in */
+        @keyframes colorChange {
+            0% { color: #4CAF50; }
+            25% { color: #FF5733; }
+            50% { color: #33A1FF; }
+            75% { color: #FF33A1; }
+            100% { color: #4CAF50; }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .greeting span {
+            display: inline-block;
+            opacity: 0;
+            animation: fadeIn 0.5s forwards;
+        }
+        /* Delay the letter appearance */
+        .greeting span:nth-child(1) { animation-delay: 0s; }
+        .greeting span:nth-child(2) { animation-delay: 0.1s; }
+        .greeting span:nth-child(3) { animation-delay: 0.2s; }
+        .greeting span:nth-child(4) { animation-delay: 0.3s; }
+        .greeting span:nth-child(5) { animation-delay: 0.4s; }
+        .greeting span:nth-child(6) { animation-delay: 0.5s; }
+        .greeting span:nth-child(7) { animation-delay: 0.6s; }
+        .greeting span:nth-child(8) { animation-delay: 0.7s; }
+        .greeting span:nth-child(9) { animation-delay: 0.8s; }
+        .greeting span:nth-child(10) { animation-delay: 0.9s; }
+        .greeting span:nth-child(11) { animation-delay: 1s; }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
 
-    .greeting span:nth-child(1) { animation-delay: 0s; }
-    .greeting span:nth-child(2) { animation-delay: 0.1s; }
-    .greeting span:nth-child(3) { animation-delay: 0.2s; }
-    .greeting span:nth-child(4) { animation-delay: 0.3s; }
-    .greeting span:nth-child(5) { animation-delay: 0.4s; }
-    .greeting span:nth-child(6) { animation-delay: 0.5s; }
-    .greeting span:nth-child(7) { animation-delay: 0.6s; }
-    .greeting span:nth-child(8) { animation-delay: 0.7s; }
-    .greeting span:nth-child(9) { animation-delay: 0.8s; }
-    .greeting span:nth-child(10) { animation-delay: 0.9s; }
-    /* Add more nth-child rules for longer greetings */
-
-    /* Animation to change colors */
-    @keyframes colorChange {
-        0% { color: #4CAF50; }
-        25% { color: #FF5733; }
-        50% { color: #33A1FF; }
-        75% { color: #FF33A1; }
-        100% { color: #4CAF50; }
-    }
-
-    /* Fade in each letter */
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+else:  # Dark Mode
+    st.markdown(
+        """
+        <style>
+        .main-title {
+            text-align: center;
+            font-size: 50px;
+            font-weight: bold;
+            color: #BB86FC;
+            margin-bottom: 20px;
+        }
+        .greeting {
+            text-align: center;
+            font-size: 50px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #fff;
+            display: inline-block;
+            animation: colorChange 5s infinite, fadeIn 2s ease-in-out;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 14px;
+            color: #BBBBBB;
+        }
+        /* Animation for color change and letter fade-in */
+        @keyframes colorChange {
+            0% { color: #BB86FC; }
+            25% { color: #03DAC6; }
+            50% { color: #FF0266; }
+            75% { color: #BB86FC; }
+            100% { color: #03DAC6; }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .greeting span {
+            display: inline-block;
+            opacity: 0;
+            animation: fadeIn 0.5s forwards;
+        }
+        /* Delay the letter appearance */
+        .greeting span:nth-child(1) { animation-delay: 0s; }
+        .greeting span:nth-child(2) { animation-delay: 0.1s; }
+        .greeting span:nth-child(3) { animation-delay: 0.2s; }
+        .greeting span:nth-child(4) { animation-delay: 0.3s; }
+        .greeting span:nth-child(5) { animation-delay: 0.4s; }
+        .greeting span:nth-child(6) { animation-delay: 0.5s; }
+        .greeting span:nth-child(7) { animation-delay: 0.6s; }
+        .greeting span:nth-child(8) { animation-delay: 0.7s; }
+        .greeting span:nth-child(9) { animation-delay: 0.8s; }
+        .greeting span:nth-child(10) { animation-delay: 0.9s; }
+        .greeting span:nth-child(11) { animation-delay: 1s; }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
 
 # Header for BG Remover V2
-st.markdown('<div style="text-align: center; font-size: 50px; font-weight: bold;">BG Remover V2</div>', unsafe_allow_html=True)
+st.markdown('<div class="main-title">BG Remover V2</div>', unsafe_allow_html=True)
 
 # Greeting based on the time in the Philippines
 greeting = get_greeting()
 
-# Animated Greeting
-st.markdown(f'<div class="greeting">{"".join([f"<span>{letter}</span>" for letter in greeting])}</div>', unsafe_allow_html=True)
+# Animated Greeting with proper handling of spaces
+greeting_with_spaces = "".join([f"<span>{letter}</span>" if letter != " " else " " for letter in greeting])
+st.markdown(f'<div class="greeting">{greeting_with_spaces}</div>', unsafe_allow_html=True)
 
 # Sidebar for feedback
 st.sidebar.header("Feedback")
@@ -144,4 +217,4 @@ if uploaded_file:
             )
 
 # Footer
-st.markdown('<div style="text-align: center; margin-top: 50px; font-size: 14px; color: #555;">Developed by: Keith Renz</div>', unsafe_allow_html=True)
+st.markdown('<div class="footer">Developed by: Keith Renz</div>', unsafe_allow_html=True)
