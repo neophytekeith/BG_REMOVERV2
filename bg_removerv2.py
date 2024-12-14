@@ -153,4 +153,12 @@ if uploaded_file:
             )
 
 # Footer
-st.markdown('<div class="footer">Developed by: Keith Renz</div>', unsafe_allow_html=True)
+st.markdown(
+    '''
+    <div class="footer" style="text-align:center; margin-top: 50px; font-size: 14px; color: #BBBBBB;">
+        DEVELOPED BY: <a href="https://www.facebook.com/rnzrmbln" target="_blank" style="color: #BB86FC; text-decoration: none;">KEITH</a>
+    </div>
+    ''', 
+    unsafe_allow_html=True
+)
+
