@@ -20,129 +20,65 @@ def get_greeting():
     else:
         return "Good Night"
 
-# Mode toggle outside the sidebar
-mode = st.selectbox("Select Mode", ("Light Mode", "Dark Mode"))
-
-# CSS for Light and Dark modes
-if mode == "Light Mode":
-    st.markdown(
-        """
-        <style>
-        .main-title {
-            text-align: center;
-            font-size: 50px;
-            font-weight: bold;
-            color: #4CAF50;
-            margin-bottom: 20px;
-        }
-        .greeting {
-            text-align: center;
-            font-size: 50px;
-            font-weight: bold;
-            margin-top: 20px;
-            color: #000;
-            display: inline-block;
-            animation: colorChange 5s infinite, fadeIn 2s ease-in-out;
-        }
-        .footer {
-            text-align: center;
-            margin-top: 50px;
-            font-size: 14px;
-            color: #555;
-        }
-        /* Animation for color change and letter fade-in */
-        @keyframes colorChange {
-            0% { color: #4CAF50; }
-            25% { color: #FF5733; }
-            50% { color: #33A1FF; }
-            75% { color: #FF33A1; }
-            100% { color: #4CAF50; }
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        .greeting span {
-            display: inline-block;
-            opacity: 0;
-            animation: fadeIn 0.5s forwards;
-        }
-        /* Delay the letter appearance */
-        .greeting span:nth-child(1) { animation-delay: 0s; }
-        .greeting span:nth-child(2) { animation-delay: 0.1s; }
-        .greeting span:nth-child(3) { animation-delay: 0.2s; }
-        .greeting span:nth-child(4) { animation-delay: 0.3s; }
-        .greeting span:nth-child(5) { animation-delay: 0.4s; }
-        .greeting span:nth-child(6) { animation-delay: 0.5s; }
-        .greeting span:nth-child(7) { animation-delay: 0.6s; }
-        .greeting span:nth-child(8) { animation-delay: 0.7s; }
-        .greeting span:nth-child(9) { animation-delay: 0.8s; }
-        .greeting span:nth-child(10) { animation-delay: 0.9s; }
-        .greeting span:nth-child(11) { animation-delay: 1s; }
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
-
-else:  # Dark Mode
-    st.markdown(
-        """
-        <style>
-        .main-title {
-            text-align: center;
-            font-size: 50px;
-            font-weight: bold;
-            color: #BB86FC;
-            margin-bottom: 20px;
-        }
-        .greeting {
-            text-align: center;
-            font-size: 50px;
-            font-weight: bold;
-            margin-top: 20px;
-            color: #fff;
-            display: inline-block;
-            animation: colorChange 5s infinite, fadeIn 2s ease-in-out;
-        }
-        .footer {
-            text-align: center;
-            margin-top: 50px;
-            font-size: 14px;
-            color: #BBBBBB;
-        }
-        /* Animation for color change and letter fade-in */
-        @keyframes colorChange {
-            0% { color: #BB86FC; }
-            25% { color: #03DAC6; }
-            50% { color: #FF0266; }
-            75% { color: #BB86FC; }
-            100% { color: #03DAC6; }
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        .greeting span {
-            display: inline-block;
-            opacity: 0;
-            animation: fadeIn 0.5s forwards;
-        }
-        /* Delay the letter appearance */
-        .greeting span:nth-child(1) { animation-delay: 0s; }
-        .greeting span:nth-child(2) { animation-delay: 0.1s; }
-        .greeting span:nth-child(3) { animation-delay: 0.2s; }
-        .greeting span:nth-child(4) { animation-delay: 0.3s; }
-        .greeting span:nth-child(5) { animation-delay: 0.4s; }
-        .greeting span:nth-child(6) { animation-delay: 0.5s; }
-        .greeting span:nth-child(7) { animation-delay: 0.6s; }
-        .greeting span:nth-child(8) { animation-delay: 0.7s; }
-        .greeting span:nth-child(9) { animation-delay: 0.8s; }
-        .greeting span:nth-child(10) { animation-delay: 0.9s; }
-        .greeting span:nth-child(11) { animation-delay: 1s; }
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
+# CSS for Always Dark Mode
+st.markdown(
+    """
+    <style>
+    .main-title {
+        text-align: center;
+        font-size: 50px;
+        font-weight: bold;
+        color: #BB86FC;
+        margin-bottom: 20px;
+    }
+    .greeting {
+        text-align: center;
+        font-size: 50px;
+        font-weight: bold;
+        margin-top: 20px;
+        color: #fff;
+        display: inline-block;
+        animation: colorChange 5s infinite, fadeIn 2s ease-in-out;
+    }
+    .footer {
+        text-align: center;
+        margin-top: 50px;
+        font-size: 14px;
+        color: #BBBBBB;
+    }
+    /* Animation for color change and letter fade-in */
+    @keyframes colorChange {
+        0% { color: #BB86FC; }
+        25% { color: #03DAC6; }
+        50% { color: #FF0266; }
+        75% { color: #BB86FC; }
+        100% { color: #03DAC6; }
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    .greeting span {
+        display: inline-block;
+        opacity: 0;
+        animation: fadeIn 0.5s forwards;
+    }
+    /* Delay the letter appearance */
+    .greeting span:nth-child(1) { animation-delay: 0s; }
+    .greeting span:nth-child(2) { animation-delay: 0.1s; }
+    .greeting span:nth-child(3) { animation-delay: 0.2s; }
+    .greeting span:nth-child(4) { animation-delay: 0.3s; }
+    .greeting span:nth-child(5) { animation-delay: 0.4s; }
+    .greeting span:nth-child(6) { animation-delay: 0.5s; }
+    .greeting span:nth-child(7) { animation-delay: 0.6s; }
+    .greeting span:nth-child(8) { animation-delay: 0.7s; }
+    .greeting span:nth-child(9) { animation-delay: 0.8s; }
+    .greeting span:nth-child(10) { animation-delay: 0.9s; }
+    .greeting span:nth-child(11) { animation-delay: 1s; }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 # Header for BG Remover V2
 st.markdown('<div class="main-title">BG Remover V2</div>', unsafe_allow_html=True)
